@@ -1,0 +1,12 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: tb-platform-monitor
+spec:
+  selector:
+    matchLabels:
+      app: tb-platform
+  endpoints:
+  - port: http
+    interval: 15s
+    path: /metrics
